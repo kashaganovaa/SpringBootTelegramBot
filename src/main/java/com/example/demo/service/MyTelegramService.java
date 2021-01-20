@@ -1,5 +1,7 @@
 package com.example.demo.service;
+import com.example.demo.model.Message;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -11,7 +13,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-@Component
+@Service
 public class MyTelegramService extends TelegramLongPollingBot {
 
     @Override
@@ -30,11 +32,11 @@ public class MyTelegramService extends TelegramLongPollingBot {
         return "1526549442:AAHAAAMNkkYt0iTMTTh-fQB1SiBn13kfYQk";
     }
 
-    public static void sendMessage(String str) {
+    public void sendMessage(Message message) {
         String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
         String apiToken = "1526549442:AAHAAAMNkkYt0iTMTTh-fQB1SiBn13kfYQk";
         String chatId = "688696597";
-        String text = str;
+        String text = message.getContext();
 
         urlString = String.format(urlString, apiToken, chatId, text);
 
