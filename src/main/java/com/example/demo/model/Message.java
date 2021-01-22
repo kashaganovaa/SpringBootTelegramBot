@@ -6,4 +6,5 @@ import lombok.Data;
 public class Message {
 
     private String context;
+
 }

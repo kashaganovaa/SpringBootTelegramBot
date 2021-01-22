@@ -1,7 +1,6 @@
 package com.example.demo.service;
 import com.example.demo.model.Message;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -13,28 +12,28 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-@Service
+@Component
 public class MyTelegramService extends TelegramLongPollingBot {
-
     @Override
     public void onUpdateReceived(Update update) {
+        System.out.println(update.getMessage().getChatId());
     }
 
     @Override
     public String getBotUsername() {
         // Return bot username
         // If bot username is @TelegramBot, it must return 'TelegramBot'
-        return "TelegramBot_ChocoPowder";
+        return "MessageSenderTelegramBot";
     }
 
     @Override
     public String getBotToken() {
-        return "1526549442:AAHAAAMNkkYt0iTMTTh-fQB1SiBn13kfYQk";
+        return "1523846081:AAGT5potmItWDIqoA7cyaHsVtVntngTonGo";
     }
 
-    public void sendMessage(Message message) {
+    public static void sendMessage(Message message) {
         String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
-        String apiToken = "1526549442:AAHAAAMNkkYt0iTMTTh-fQB1SiBn13kfYQk";
+        String apiToken = "1523846081:AAGT5potmItWDIqoA7cyaHsVtVntngTonGo";
         String chatId = "688696597";
         String text = message.getContext();
 

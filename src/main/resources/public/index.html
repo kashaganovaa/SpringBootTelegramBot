@@ -5,21 +5,28 @@
     <title>Welcome</title>
 </head>
 <body>
-<div>
+<form method = "POST" id="messageForm">
     <label for="text">Your text:</label><br>
     <input type="text" id="text" name="context"><br>
+    <input type="submit" id="submitButton" value="Submit">
+</form>
+<!--<script>-->
+<!--    function sendMsg() {-->
 
-    <input id="submit" value="Submit" onclick="sendMsg()">
-</div>
+<!--        var text = {};-->
+<!--        text["context"] = document.getElementById("text").innerHTML;-->
 
-<script>
-    function sendMsg() {
+<!--        $.ajax({-->
+<!--            type: "POST",-->
+<!--            url: "/sendMessage",-->
+<!--            data: text,-->
 
-        var text = document.getElementById("text").innerHTML;
+<!--            success: function(data) {-->
+<!--                text.append(data.context);-->
+<!--            },-->
+<!--        });-->
+<!--    }-->
 
-        // ajax
-    }
-
-</script>
+<!--</script>-->
 </body>
 </html>

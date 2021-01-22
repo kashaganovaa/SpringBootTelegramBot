@@ -1,5 +1,4 @@
 package com.example.demo.controller;
-
 import com.example.demo.model.Message;
 import com.example.demo.service.MyTelegramService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MessageController {
-
     private final MyTelegramService myTelegramService;
 
     @Autowired
